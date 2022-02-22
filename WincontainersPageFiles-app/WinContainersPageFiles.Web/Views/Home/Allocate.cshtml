@@ -1,0 +1,49 @@
+﻿@model WinContainersPageFiles.Web.Models.AllocateViewModel
+
+@{
+    ViewBag.Title = "Allocate some memory";
+}
+
+<h2>Allocate some memory</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>AllocateViewModel</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Amount, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Amount, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            Physical memory @Html.RadioButtonFor(model => model.Type, "Physical", new { htmlAttributes = new { @class = "form-control" } }) <br />
+            Virtual memory (Commit demand) @Html.RadioButtonFor(model => model.Type, "VirtualCommitDemand", new { htmlAttributes = new { @class = "form-control" } }) <br />
+            Virtual memory (Commit and RAM demand) @Html.RadioButtonFor(model => model.Type, "VirtualCommitAndRamDemand", new { htmlAttributes = new { @class = "form-control" } }) <br />
+            Create file mapping and allocate in page file @Html.RadioButtonFor(model => model.Type, "CreateFileMapping", new { htmlAttributes = new { @class = "form-control" } })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Create" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,17 @@
+node_modules
+npm-debug.log
+Dockerfile*
+docker-compose*
+.dockerignore
+.git
+.gitignore
+.env
+*/obj/*
+*/bin/*
+README.md
+LICENSE
+.vscode
+.vs
+*.user
+packages
+*DS_Store
