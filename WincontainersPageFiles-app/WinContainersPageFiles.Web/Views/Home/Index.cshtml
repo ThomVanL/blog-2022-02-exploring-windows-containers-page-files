@@ -1,0 +1,38 @@
+﻿@using WinContainersPageFiles.Web.Models
+@{
+    ViewBag.Title = "Home Page";
+}
+@model HomeViewModel
+
+
+
+<div class="jumbotron">
+    <h1>Thomas Van Laere Blog - Exploring Windows Containers: Page Files</h1>
+    <ul>
+        <li>Is64BitOperatingSystem: @Model.Is64BitOperatingSystem</li>
+    </ul>
+    <p class="lead">Current process stats</p>
+    <ul>
+        <li>PeakPagedMemorySize64: @Model.ProcessViewModel.PeakPagedMemorySize64 MB</li>
+        <li>PagedMemorySize64: @Model.ProcessViewModel.PagedMemorySize64 MB</li>
+        <li>PrivateMemorySize64: @Model.ProcessViewModel.PrivateMemorySize64 MB</li>
+    </ul>
+    <p class="lead">"SELECT * FROM Win32_OperatingSystem"</p>
+    <ul>
+        <li>FreePhysicalMemory: @Model.OsViewModel.FreePhysicalMemory MB</li>
+        <li>FreeVirtualMemory: @Model.OsViewModel.FreeVirtualMemory MB</li>
+        <li>TotalVisibleMemorySize: @Model.OsViewModel.TotalVisibleMemorySize MB</li>
+        <li>TotalVirtualMemorySize: @Model.OsViewModel.TotalVirtualMemorySize MB</li>
+    </ul>
+    <p class="lead">"SELECT * FROM Win32_PageFileusage"</p>
+    @foreach (PageFileUsageViewModel vm in Model.PageFileUsageViewModels)
+    {
+        <ul>
+            <li>Path: @vm.Path</li>
+            <li>AllocatedBaseSize: @vm.AllocatedBaseSize MB</li>
+            <li>CurrentUsage: @vm.CurrentUsage MB</li>
+            <li>PeakUsage: @vm.PeakUsage MB</li>
+        </ul>
+    }
+    @Html.ActionLink("Allocate memory", "Allocate", "Home", new { area = "" }, new { @class = "btn btn-danger" })
+</div>
