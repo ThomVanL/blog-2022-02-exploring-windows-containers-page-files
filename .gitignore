@@ -397,3 +397,5 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+!WincontainersPageFiles-app/WinContainersPageFiles.Web/Properties/PublishProfiles/FolderProfile.pubxml
