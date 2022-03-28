@@ -12,7 +12,7 @@ Feel free to read the [full blog post](https://thomasvanlaere.com/posts/2022/02/
 
 ## The test setup
 
-As I was figuring things out, I used a few Azure services to perform my tests. If you'd like to follow try some of them out for yourself, feel free to do so. I created a Bicep template that provisions a bunch of resources that should make it pretty straightforward to stress test a container and host's memory and associated page file.
+As I was figuring things out, I used a few Azure services to perform my tests. If you'd like to try some of them out for yourself, feel free to do so. I created a Bicep template that provisions a bunch of resources that should make it pretty straightforward to stress test a container and host's memory and associated page file.
 
 I used some platform-as-a-service offerings:
 
